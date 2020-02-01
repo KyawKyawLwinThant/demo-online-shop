@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div th:replace="/layout/userlayout::navbar"></div>
+<div th:replace="/layout/userlayout::headimage"></div>
+
+    <div class="container">
+
+        <div class="row my-5">
+            <div class="col-md-4" th:each="pro :${products}">
+                <div class="card">
+                    <img style="height: 400px" th:src="@{'/images/'+${pro.name}+'.jpg'}" class="card-img-top" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${pro.name}"></h5>
+                        <p class="card-text" th:text="${'Price -'+ pro.price + ' $'}"></p>
+                        <p class="card-text" th:text="${'Quantity-'+ pro.quantity + ' items.'}"></p>
+                        <a th:href="@{'/product/'+ ${pro.id}}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+<div th:replace="/layout/userlayout::footer"></div>
+
+<div th:replace="/layout/userlayout::jscript"></div>
+</body>
+</html>

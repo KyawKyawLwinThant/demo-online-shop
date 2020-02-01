@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div th:replace="/layout/adminlayout::navbar"></div>
+
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table mt-5">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>LastUpdated</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pro:${products}">
+                    <td th:text="${pro.name}"></td>
+                    <td th:text="${pro.price}"></td>
+                    <td th:text="${pro.quantity}"></td>
+                    <td th:text="${pro.lastUpdated}"></td>
+                    <td th:text="${pro.category.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="#" th:href="@{/product}" class="btn btn-primary">New Product</a>
+
+    </div>
+
+
+    <div th:replace="/layout/adminlayout::jscript"></div>
+</body>
+</html>

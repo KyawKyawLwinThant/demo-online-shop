@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+        <div th:replace="/layout/adminlayout::navbar"></div>
+
+        <div class="container">
+            <form action="#" th:action="@{/product}" th:object="${products}" method="post">
+
+                <div class="form-group row mt-5">
+                    <label for="name" class="col-form-label col-sm-2">Name</label>
+                    <div class="col-sm-8">
+                        <input id="name" th:field="*{name}" type="text" class="form-control"/>
+                        <p th:if="${#fields.errors('name')}" class="text-danger" th:errors="*{name}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="quantity" class="col-form-label col-sm-2">Quantity</label>
+                    <div class="col-sm-8">
+                        <input id="quantity" th:field="*{quantity}" type="number" class="form-control"/>
+                        <p th:if="${#fields.errors('quantity')}" class="text-danger" th:errors="*{quantity}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="price" class="col-form-label col-sm-2">Price</label>
+                    <div class="col-sm-8">
+                        <input id="price" th:field="*{price}" step="any" type="number" class="form-control"/>
+                        <p th:if="${#fields.errors('price')}" class="text-danger" th:errors="*{price}"></p>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="lastupdate" class="col-form-label col-sm-2">Last Updated</label>
+                    <div class="col-sm-8">
+                        <input id="lastupdate" th:field="*{lastUpdated}"  type="date" class="form-control"/>
+                        <p th:if="${#fields.errors('lastUpdated')}" class="text-danger" th:errors="*{lastUpdated}"></p>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="category" class="col-form-label col-sm-2">Category</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" th:field="*{category}" name="category" id="category">
+                            <option th:each="cat:${cateogries}" th:text="${cat.name}" th:value="${cat.id}"></option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            </form>
+
+
+
+        </div>
+
+
+
+
+        <div th:replace="/layout/adminlayout::jscript"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div th:replace="/layout/userlayout::navbar"></div>
+    <div th:replace="/layout/userlayout::headimage"></div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/1}">
+                    <img class="img-thumbnail" src="/static/images/" th:src="@{/images/fruits.jpg}" alt="Responsive Image">
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/2}">
+                    <img class="img-thumbnail" src="/static/images/" th:src="@{/images/meats.jpg}" alt="Responsive Image">
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/4}">
+                    <img class="img-thumbnail" src="/static/images/" th:src="@{/images/flower.jpg}" alt="Responsive Image">
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a th:href="@{/product/category/3}">
+                    <img class="img-thumbnail" src="/static/images/" th:src="@{/images/milk.jpg}" alt="Responsive Image">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <div th:replace="/layout/userlayout::footer"></div>
+
+    <div th:replace="/layout/userlayout::jscript"></div>
+</body>
+</html>
